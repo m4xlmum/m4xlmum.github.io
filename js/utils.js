@@ -33,7 +33,7 @@ const btf = {
       const remaining = wait - (now - previous)
       context = this
       args = arguments
-      if (remaining <= 0 || remaining> wait) {
+      if (remaining <= 0 || remaining > wait) {
         if (timeout) {
           clearTimeout(timeout)
           timeout = null
@@ -249,4 +249,3 @@ const btf = {
   }
 
 }
-</=>
