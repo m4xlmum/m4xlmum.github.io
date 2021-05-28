@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>渗透测试</title>
+      <link href="2021/05/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+      <url>2021/05/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><h2 id="冰蝎Shell管理工具"><a href="#冰蝎Shell管理工具" class="headerlink" title="冰蝎Shell管理工具"></a>冰蝎Shell管理工具</h2><h3 id="引用内容，与冰蝎的基本使用和原理"><a href="#引用内容，与冰蝎的基本使用和原理" class="headerlink" title="引用内容，与冰蝎的基本使用和原理"></a>引用内容，与冰蝎的基本使用和原理</h3><p><a href="https://www.anquanke.com/post/id/212271">冰蝎，从入门到魔改</a></p><h3 id="使用方式，与冰蝎的优势和特征"><a href="#使用方式，与冰蝎的优势和特征" class="headerlink" title="使用方式，与冰蝎的优势和特征"></a>使用方式，与冰蝎的优势和特征</h3><p>因为从前的”菜刀”的流量很容易被各种工具检测到，才有了这个第二代的Shell管理工具，冰蝎是基于流量加密的Shell管理软件。冰蝎是基于Java的，所以可以跨平台使用。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+            <tag> 渗透测试 </tag>
+            
+            <tag> 网络安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CTF</title>
       <link href="2021/05/28/CTF/"/>
       <url>2021/05/28/CTF/</url>
