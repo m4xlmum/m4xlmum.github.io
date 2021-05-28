@@ -327,20 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const innerHeight = window.innerHeight + 56
 
     // 當滾動條小于 56 的時候
-    if (document.body.scrollHeight <= innerHeight) {
-      $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
-      return
-    }
-
-    let initTop = 0
-    let isChatShow = true
-    const $header = document.getElementById('page-header')
-    const isChatBtnHide = typeof chatBtnHide === 'function'
-    const isChatBtnShow = typeof chatBtnShow === 'function'
-    window.addEventListener('scroll', btf.throttle(function (e) {
-      const currentTop = window.scrollY || document.documentElement.scrollTop
-      const isDown = scrollDirection(currentTop)
-      if (currentTop > 56) {
+    if (document.body.scrollHeight <= innerheight) { $rightside.style.csstext="opacity: 1; transform: translateX(-38px)" return } let inittop="0" ischatshow="true" const $header="document.getElementById('page-header')" ischatbtnhide="typeof" chatbtnhide="==" 'function' ischatbtnshow="typeof" chatbtnshow="==" window.addeventlistener('scroll', btf.throttle(function (e) currenttop="window.scrollY" || document.documentelement.scrolltop isdown="scrollDirection(currentTop)" if (currenttop> 56) {
         if (isDown) {
           if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
           if (isChatBtnShow && isChatShow === true) {
@@ -365,14 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $rightside.style.cssText = "opacity: ''; transform: ''"
       }
 
-      if (document.body.scrollHeight <= innerHeight) {
-        $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
-      }
-    }, 200))
-
-    // find the scroll direction
-    function scrollDirection (currentTop) {
-      const result = currentTop > initTop // true is down & false is up
+      if (document.body.scrollHeight <= innerheight) { $rightside.style.csstext="opacity: 1; transform: translateX(-38px)" } }, 200)) find the scroll direction function scrolldirection (currenttop) const result="currentTop"> initTop // true is down & false is up
       initTop = currentTop
       return result
     }
@@ -401,21 +381,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
       const scrollPercent = (currentTop - headerHeight) / (contentMath)
       const scrollPercentRounded = Math.round(scrollPercent * 100)
-      const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
-      $cardToc.setAttribute('progress-percentage', percentage)
-    }
-
-    // anchor
-    const isAnchor = GLOBAL_CONFIG.isanchor
-    const updateAnchor = function (anchor) {
-      if (window.history.replaceState && anchor !== window.location.hash) {
-        if (!anchor) anchor = location.pathname
-        window.history.replaceState({}, '', anchor)
-      }
-    }
-
-    const mobileToc = {
-      open: () => {
+      const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0 0) ? : scrollpercentrounded $cardtoc.setattribute('progress-percentage', percentage) } anchor const isanchor="GLOBAL_CONFIG.isanchor" updateanchor="function" (anchor) { if (window.history.replacestate && !="=" window.location.hash) (!anchor) window.history.replacestate({}, '', anchor) mobiletoc="{" open: ()> {
         $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: 45px'
       },
 
@@ -560,67 +526,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.style.setProperty('--global-font-size', newValue + 'px')
         !document.getElementById('nav').classList.contains('hide-menu') && adjustMenu(true)
       } else {
-        if (fontSizeVal <= 10) return
-        newValue = fontSizeVal - 1
-        document.documentElement.style.setProperty('--global-font-size', newValue + 'px')
-        document.getElementById('nav').classList.contains('hide-menu') && adjustMenu(true)
-      }
-
-      saveToLocal.set('global-font-size', newValue, 2)
-      // document.getElementById('font-text').innerText = newValue
-    }
-  }
-
-  document.getElementById('rightside').addEventListener('click', function (e) {
-    const $target = e.target.id || e.target.parentNode.id
-    switch ($target) {
-      case 'go-up':
-        rightSideFn.scrollToTop()
-        break
-      case 'rightside_config':
-        rightSideFn.showOrHideBtn()
-        break
-      case 'readmode':
-        rightSideFn.switchReadMode()
-        break
-      case 'darkmode':
-        rightSideFn.switchDarkMode()
-        break
-      case 'hide-aside-btn':
-        rightSideFn.hideAsideBtn()
-        break
-      case 'font-plus':
-        rightSideFn.adjustFontSize(true)
-        break
-      case 'font-minus':
-        rightSideFn.adjustFontSize()
-        break
-      default:
-        break
-    }
-  })
-
-  /**
- * menu
- * 側邊欄sub-menu 展開/收縮
- * 解決menus在觸摸屏下，滑動屏幕menus_item_child不消失的問題（手機hover的bug)
- */
-  const clickFnOfSubMenu = function () {
-    document.querySelectorAll('#sidebar-menus .expand').forEach(function (e) {
-      e.addEventListener('click', function () {
-        this.classList.toggle('hide')
-        const $dom = this.parentNode.nextElementSibling
-        if (btf.isHidden($dom)) {
-          $dom.style.display = 'block'
-        } else {
-          $dom.style.display = 'none'
-        }
-      })
-    })
-
-    window.addEventListener('touchmove', function (e) {
-      const $menusChild = document.querySelectorAll('#nav .menus_item_child')
-      $menusChild.forEach(item => {
+        if (fontSizeVal <= 1 10) return newvalue="fontSizeVal" - document.documentelement.style.setproperty('--global-font-size', + 'px') document.getelementbyid('nav').classlist.contains('hide-menu') && adjustmenu(true) } savetolocal.set('global-font-size', newvalue, 2) document.getelementbyid('font-text').innertext="newValue" document.getelementbyid('rightside').addeventlistener('click', function (e) { const $target="e.target.id" || e.target.parentnode.id switch ($target) case 'go-up': rightsidefn.scrolltotop() break 'rightside_config': rightsidefn.showorhidebtn() 'readmode': rightsidefn.switchreadmode() 'darkmode': rightsidefn.switchdarkmode() 'hide-aside-btn': rightsidefn.hideasidebtn() 'font-plus': rightsidefn.adjustfontsize(true) 'font-minus': rightsidefn.adjustfontsize() default: }) ** * menu 側邊欄sub-menu 展開 收縮 解決menus在觸摸屏下，滑動屏幕menus_item_child不消失的問題（手機hover的bug) clickfnofsubmenu="function" () document.queryselectorall('#sidebar-menus .expand').foreach(function e.addeventlistener('click', this.classlist.toggle('hide') $dom="this.parentNode.nextElementSibling" if (btf.ishidden($dom)) $dom.style.display="block" else window.addeventlistener('touchmove', $menuschild="document.querySelectorAll('#nav" .menus_item_child') $menuschild.foreach(item> {
         if (!btf.isHidden(item)) item.style.display = 'none'
       })
     })
@@ -853,3 +759,4 @@ document.addEventListener('DOMContentLoaded', function () {
   refreshFn()
   unRefreshFn()
 })
+</=></=></=></=>

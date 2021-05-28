@@ -102,7 +102,7 @@ window.addEventListener('load', () => {
             '<hr>' +
             stats +
             '<span class="algolia-logo pull-right">' +
-            '  <img src="' + GLOBAL_CONFIG.root + 'img/algolia.svg" alt="Algolia" />' +
+            '  <img src="/js/search/algolia.j/algolia.svg" alt="Algolia">' +
             '</span>'
           )
         }

@@ -60,16 +60,7 @@ window.addEventListener('load', () => {
           let str = '<div class="search-result-list">'
           const keywords = this.value.trim().toLowerCase().split(/[\s]+/)
           $resultContent.innerHTML = ''
-          if (this.value.trim().length <= 0) return
-          let count = 0
-          // perform local searching
-          datas.forEach(function (data) {
-            let isMatch = true
-            if (!data.title || data.title.trim() === '') {
-              data.title = 'Untitled'
-            }
-            let dataTitle = data.title.trim().toLowerCase()
-            const dataContent = data.content.trim().replace(/<[^>]+>/g, '').toLowerCase()
+          if (this.value.trim().length <= 0) return let count="0" perform local searching datas.foreach(function (data) { ismatch="true" if (!data.title || data.title.trim()="==" '') data.title="Untitled" } datatitle="data.title.trim().toLowerCase()" const datacontent="data.content.trim().replace(/<[^">]+>/g, '').toLowerCase()
             const dataUrl = data.url.startsWith('/') ? data.url : GLOBAL_CONFIG.root + data.url
             let indexTitle = -1
             let indexContent = -1
@@ -137,7 +128,7 @@ window.addEventListener('load', () => {
             str += '<div id="local-search__hits-empty">' + GLOBAL_CONFIG.localSearch.languages.hits_empty.replace(/\$\{query}/, this.value.trim()) +
               '</div>'
           }
-          str += '</div>'
+          str += '</[^></=></div>'
           $resultContent.innerHTML = str
           window.pjax && window.pjax.refresh($resultContent)
         })
