@@ -2,6 +2,33 @@
 <search> 
   
   
+    
+    <entry>
+      <title>CTF</title>
+      <link href="2021/05/28/CTF/"/>
+      <url>2021/05/28/CTF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    本片文章主要写的内容——CTF领域内我所学到的所有方向的笔记。    </p><p>​    之前的博客环境与内容坏了，内容还在，不过md的内容已经永久遗失了，之后会将所有的关于CTF内容记录到此文件内，笔记的内容尽量不超过20万字，防止读者打开的速度过慢。</p><p>​    之后会将从前写的文章放到百度网盘内备份，并且随着我放到我的VPS内，如果我没vps了就访问如下的GitHub的地址，不过这里面的url确实挺长的，如果你对我从前文章的内容感兴趣的话，请访问<a href="https://github.com/m4xlmum/a16n.github.io/">我从前的博客</a>，但是其实以前的内容也没啥，直接dump下来看好了。往后一定认真写博客，主要的是一定要备份，以前写的好多文章都没了，还是挺心疼的(还好备份还在)</p><p>​    MISC——杂项，考察内容覆盖广泛，主要包含隐写术、古典密码学、压缩包、图片、编码、取证等方面。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> misc </tag>
+            
+            <tag> web </tag>
+            
+            <tag> crypto </tag>
+            
+            <tag> reverse </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
