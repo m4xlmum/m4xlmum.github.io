@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>GoLang学习笔记</title>
+      <link href="2021/05/30/GoLang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>2021/05/30/GoLang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/2021/05/30/GoLang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210530234831511.png" alt="image-20210530234831511"></p><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着技术的发展，好像说python越来越力不从心了。虽然python的语言格式十分简洁，代码也容易理解，本来我想做一个pythonista的来着，但是看群里都在讨论go语言这种新技术(对于我来说是新技术)，就想了解了解学一下看看go语言的优缺，看哪门语言更适合作为工具语言(语言被开发出来就是作为工具要用的)。PS：其实是总是听说go语言比python好(个人感觉就是好像在瞎吹一样)，想来看看到底好在哪里。</p><p><strong>主要在最近学习python开发之余学一学golang，现在的我也还没资格深入进去</strong></p><h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>直接下个GoLand就行了，sdk这个ide会自己给你安装好的，也省得配置环境了，到现在为止还没有发现什么错误。社区版的应该就足够一般化的使用了。</p><h2 id="Go-是编译型语言"><a href="#Go-是编译型语言" class="headerlink" title="Go 是编译型语言"></a>Go 是编译型语言</h2><p>Go 使用编译器来编译代码。编译器将源代码编译成二进制（或字节码）格式；在编译代码时，编译器检查错误、优化性能并输出可在不同平台上运行的二进制文件。要创建并运行 Go 程序，程序员必须执行如下步骤。</p><ol><li>使用文本编辑器创建 Go 程序；</li><li>保存文件；</li><li>编译程序；</li><li>运行编译得到的可执行文件。</li></ol><p>这不同于 Python、Ruby 和 JavaScript 等语言，它们不包含编译步骤。Go 自带了编译器，因此无须单独安装编译器。</p><h2 id="Go特点"><a href="#Go特点" class="headerlink" title="Go特点"></a>Go特点</h2><p>快速编译，高效执行，易于开发。</p><p>Go语言支持交叉编译，比如说你可以在运行 Linux 系统的计算机上开发可以在 Windows 上运行的应用程序。这是第一门完全支持 UTF-8 的编程语言，这不仅体现在它可以处理使用 UTF-8 编码的字符串，就连它的源码文件格式都是使用的 UTF-8 编码。Go语言做到了真正的国际化！</p><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="Go语言中的变量"><a href="#Go语言中的变量" class="headerlink" title="Go语言中的变量"></a>Go语言中的变量</h2><h3 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h3><p>布尔类型：false</p><p>int类型  ：0</p><p>string类型：””</p><p>其他类型：nil</p><p>这里的其他类型官方文档给的解释是<code>Type must be a pointer, channel, func, interface, map, or slice type</code>。</p><p>也就是说必须是这六种类型<code>pointer, channel, func, interface, map, slice</code></p><h3 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main<span class="token keyword">import</span> <span class="token string">"fmt"</span><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">var</span> i <span class="token builtin">int</span>    <span class="token keyword">var</span> f <span class="token builtin">float64</span>    <span class="token keyword">var</span> b <span class="token builtin">bool</span>    <span class="token keyword">var</span> s <span class="token builtin">string</span>    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%v %v %v %q\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> f<span class="token punctuation">,</span> b<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>声明方式有下面的两种，即</p><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> value1 <span class="token keyword">type</span> <span class="token operator">=</span> value2  或   <span class="token keyword">var</span> value1 <span class="token operator">=</span> value2value1 <span class="token operator">:=</span> value2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>但是上面的语句都是声明语句，在变量的生存周期内，变量只能被声明一次，这时只能用赋值操作<code>=</code>来改变变量的值，千万不要以为<code>:=</code>是赋值语句，这个只是一个简写的声明语句而已。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> GoLang </tag>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2021年各比赛wp</title>
       <link href="2021/05/29/2021%E5%B9%B4%E5%90%84%E6%AF%94%E8%B5%9Bwp/"/>
       <url>2021/05/29/2021%E5%B9%B4%E5%90%84%E6%AF%94%E8%B5%9Bwp/</url>
