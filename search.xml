@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>linux使用笔记</title>
+      <link href="2021/12/25/linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+      <url>2021/12/25/linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一些小工具"><a href="#一些小工具" class="headerlink" title="一些小工具"></a>一些小工具</h1><h2 id="rarcrack"><a href="#rarcrack" class="headerlink" title="rarcrack"></a>rarcrack</h2><p>直接安装</p><pre class="line-numbers language-none"><code class="language-none">sudo apt install rarcrack<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>使用方法为</p><pre class="line-numbers language-none"><code class="language-none">执行命令: rarcrack 文件名 -threads 线程数 -type rar|zip|7z<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>我常用的是</p><pre class="line-numbers language-none"><code class="language-none">rarcrack flag.zip -threads 4 -type zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DAMNCON2021CTF</title>
       <link href="2021/11/26/DAMNCON2021CTF/"/>
       <url>2021/11/26/DAMNCON2021CTF/</url>
@@ -177,9 +190,9 @@
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> 开发文档 </tag>
+            
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -456,11 +469,11 @@
       
         <tags>
             
-            <tag> web </tag>
-            
             <tag> 渗透测试 </tag>
             
             <tag> 网络安全 </tag>
+            
+            <tag> web </tag>
             
         </tags>
       
@@ -481,9 +494,9 @@
             
             <tag> ctf </tag>
             
-            <tag> misc </tag>
-            
             <tag> web </tag>
+            
+            <tag> misc </tag>
             
             <tag> crypto </tag>
             
