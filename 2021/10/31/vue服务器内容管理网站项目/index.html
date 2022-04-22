@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>vue服务器内容管理网站项目 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言​	因为我的qqbot在运行的时候，经常性的掉线，因为各种各种的原因有了这个个性化的在线的服务器内容管理网站的需求。主要用来，在手边没有电脑的情况下进行服务器的各种内容的管理。 实现框架1vue(ElementUi) + nodejs  ​	因为没有、也不需要存储的功能，所以这个网站基本上用不到数据库，需要用的话，可以用yaml文件来存放各种对于服务器的配置。 功能需求Vue安装使用安装vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue服务器内容管理网站项目">
+<meta property="og:url" content="http://example.com/2021/10/31/vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言​	因为我的qqbot在运行的时候，经常性的掉线，因为各种各种的原因有了这个个性化的在线的服务器内容管理网站的需求。主要用来，在手边没有电脑的情况下进行服务器的各种内容的管理。 实现框架1vue(ElementUi) + nodejs  ​	因为没有、也不需要存储的功能，所以这个网站基本上用不到数据库，需要用的话，可以用yaml文件来存放各种对于服务器的配置。 功能需求Vue安装使用安装vue">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/topimg/">
+<meta property="article:published_time" content="2021-10-31T05:51:40.000Z">
+<meta property="article:modified_time" content="2022-04-22T14:31:10.165Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/topimg/"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/31/vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue服务器内容管理网站项目',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-22 22:31:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">25</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/topimg/')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue服务器内容管理网站项目</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-31T05:51:40.000Z" title="Created 2021-10-31 13:51:40">2021-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-04-22T14:31:10.165Z" title="Updated 2022-04-22 22:31:10">2022-04-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vue服务器内容管理网站项目"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​	因为我的qqbot在运行的时候，经常性的掉线，因为各种各种的原因有了这个个性化的在线的服务器内容管理网站的需求。主要用来，在手边没有电脑的情况下进行服务器的各种内容的管理。</p>
+<h2 id="实现框架"><a href="#实现框架" class="headerlink" title="实现框架"></a>实现框架</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue(ElementUi) + nodejs</span><br></pre></td></tr></table></figure>
+
+<p>​	因为没有、也不需要存储的功能，所以这个网站基本上用不到数据库，需要用的话，可以用yaml文件来存放各种对于服务器的配置。</p>
+<h2 id="功能需求"><a href="#功能需求" class="headerlink" title="功能需求"></a>功能需求</h2><h1 id="Vue安装使用"><a href="#Vue安装使用" class="headerlink" title="Vue安装使用"></a>Vue安装使用</h1><h2 id="安装vue-x2F-cli脚手架"><a href="#安装vue-x2F-cli脚手架" class="headerlink" title="安装vue&#x2F;cli脚手架"></a>安装vue&#x2F;cli脚手架</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建vue项目"><a href="#创建vue项目" class="headerlink" title="创建vue项目"></a>创建vue项目</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create qqbotmanager</span><br></pre></td></tr></table></figure>
+
+<p>​	提示如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">🎉  Successfully created project qqbotmanager.</span><br><span class="line">👉  Get started with the following commands:</span><br><span class="line"></span><br><span class="line"> $ cd qqbotmanager</span><br><span class="line"> $ npm run serve</span><br></pre></td></tr></table></figure>
+
+<p>​	直接按他的执行能成功运行起来就可以了。</p>
+<h2 id="修改默认的端口号"><a href="#修改默认的端口号" class="headerlink" title="修改默认的端口号"></a>修改默认的端口号</h2><p>在项目主目录下的package.json文件夹下面的<code>&quot;scripts&quot;</code>键下的<code>serve</code>键的值改为<code>vue-cli-service serve --port 1001</code></p>
+<h1 id="ElementUi安装使用"><a href="#ElementUi安装使用" class="headerlink" title="ElementUi安装使用"></a>ElementUi安装使用</h1><h2 id="两种方式使用框架"><a href="#两种方式使用框架" class="headerlink" title="两种方式使用框架"></a>两种方式使用框架</h2><p>​	第一种方式是直接在head标签里面加一个标签来引入，这种方法十分方便，但是我作为一个新手，还是做点有挑战性的工作吧。所以我采用了第二种使用这个框架的解决方案。</p>
+<h3 id="node引入框架"><a href="#node引入框架" class="headerlink" title="node引入框架"></a>node引入框架</h3><ol>
+<li>安装框架</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install element-plus --save</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>框架使用。直接在框架主目录下的main.js文件里面引入即可，引入方式如下。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ElementPlus</span> <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-plus/dist/index.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title class_">ElementPlus</span>)</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="宣告失败-amp-bot上线助手"><a href="#宣告失败-amp-bot上线助手" class="headerlink" title="宣告失败&amp;bot上线助手"></a>宣告失败&amp;bot上线助手</h1><h2 id="失败原因"><a href="#失败原因" class="headerlink" title="失败原因"></a>失败原因</h2><p>​	使用前未对这个框架进行调查，发现适配手机端并不像我想象得那么简单，而且如果我做的界面很简单的话用这个东西也是可以的，但是我想要做的东西又很复杂，这个东西就显得有点鸡肋了，远远不如使用安卓或者微信小程序开发，再者qqbot我已经想好新的办法来对抗它经常性掉线的这个bug了，所以我会先用这个想法，做一个简单的bot状态检测与修复。</p>
+<h2 id="bot下线原因列举"><a href="#bot下线原因列举" class="headerlink" title="bot下线原因列举"></a>bot下线原因列举</h2><ol>
+<li>go-cqhttp不稳定，掉线。</li>
+<li>我写的bot插件不稳定，掉线。</li>
+</ol>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ol>
+<li><p>单独写一个状态检测脚本，每10分钟，对go-cqhttp和bot插件进行一次状态检测。</p>
+</li>
+<li><p>状态检测脚本代码如下：</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os, time</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data1 = os.popen(<span class="string">&#x27;lsof -i:5701&#x27;</span>).readlines() <span class="comment">#返回一个list类型的结果</span></span><br><span class="line">    data2 = os.popen(<span class="string">&#x27;lsof -i:5700&#x27;</span>).readlines()  <span class="comment"># 返回一个list类型的结果</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data1) == <span class="number">2</span> <span class="keyword">and</span> <span class="built_in">len</span>(data2) == <span class="number">2</span>:</span><br><span class="line">        time.sleep(<span class="number">600</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">len</span>(data1) != <span class="number">2</span>:</span><br><span class="line">        os.system(<span class="string">&quot;nohup sudo python ../plugin/main.py &gt; /dev/null 2&gt;&amp;1 &amp;&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;已成功重启bot插件&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">len</span>(data2) != <span class="number">2</span>:</span><br><span class="line">        os.system(<span class="string">&quot;nohup sudo  ../go-cqhttp &gt; /dev/null 2&gt;&amp;1 &amp;&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;已成功重启bot&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/31/vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/">http://example.com/2021/10/31/vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/topimg/" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/03/Electron%E5%88%9D%E4%BD%93%E9%AA%8C/"><img class="prev-cover" src="/img/topimg/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Electron初体验</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/28/%E4%BA%BA%E7%B1%BB%E4%B8%80%E8%B4%A5%E6%B6%82%E5%9C%B0%E5%9C%B0%E5%9B%BE%E5%88%B6%E4%BD%9C%E6%96%87%E6%A1%A3/"><img class="next-cover" src="/img/topimg/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">人类一败涂地地图制作文档</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">25</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">实现框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">功能需求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">Vue安装使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85vue-x2F-cli%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">2.1.</span> <span class="toc-text">安装vue&#x2F;cli脚手架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.2.</span> <span class="toc-text">创建vue项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">2.3.</span> <span class="toc-text">修改默认的端口号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ElementUi%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">ElementUi安装使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E4%BD%BF%E7%94%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">3.1.</span> <span class="toc-text">两种方式使用框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#node%E5%BC%95%E5%85%A5%E6%A1%86%E6%9E%B6"><span class="toc-number">3.1.1.</span> <span class="toc-text">node引入框架</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%A3%E5%91%8A%E5%A4%B1%E8%B4%A5-amp-bot%E4%B8%8A%E7%BA%BF%E5%8A%A9%E6%89%8B"><span class="toc-number">4.</span> <span class="toc-text">宣告失败&amp;bot上线助手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0"><span class="toc-number">4.1.</span> <span class="toc-text">失败原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bot%E4%B8%8B%E7%BA%BF%E5%8E%9F%E5%9B%A0%E5%88%97%E4%B8%BE"><span class="toc-number">4.2.</span> <span class="toc-text">bot下线原因列举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">解决办法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/01/16/%E7%BD%91%E7%AB%99%E8%BF%90%E8%90%A5/" title="网站运营"><img src="/img/topimg/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网站运营"/></a><div class="content"><a class="title" href="/2022/01/16/%E7%BD%91%E7%AB%99%E8%BF%90%E8%90%A5/" title="网站运营">网站运营</a><time datetime="2022-01-16T14:48:30.000Z" title="Created 2022-01-16 22:48:30">2022-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/11/%E8%80%83%E7%A0%94%E6%80%BB%E5%88%8A/" title="考研总刊"><img src="/img/topimg/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="考研总刊"/></a><div class="content"><a class="title" href="/2022/01/11/%E8%80%83%E7%A0%94%E6%80%BB%E5%88%8A/" title="考研总刊">考研总刊</a><time datetime="2022-01-11T05:12:19.000Z" title="Created 2022-01-11 13:12:19">2022-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/09/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%B4%B4/" title="安卓开发经验贴"><img src="/img/topimg/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓开发经验贴"/></a><div class="content"><a class="title" href="/2022/01/09/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%B4%B4/" title="安卓开发经验贴">安卓开发经验贴</a><time datetime="2022-01-09T01:12:09.000Z" title="Created 2022-01-09 09:12:09">2022-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/25/linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="linux使用笔记"><img src="/img/topimg/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux使用笔记"/></a><div class="content"><a class="title" href="/2021/12/25/linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="linux使用笔记">linux使用笔记</a><time datetime="2021-12-25T07:48:57.000Z" title="Created 2021-12-25 15:48:57">2021-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/26/DAMNCON2021CTF/" title="DAMNCON2021CTF"><img src="/img/topimg/" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DAMNCON2021CTF"/></a><div class="content"><a class="title" href="/2021/11/26/DAMNCON2021CTF/" title="DAMNCON2021CTF">DAMNCON2021CTF</a><time datetime="2021-11-26T13:08:25.000Z" title="Created 2021-11-26 21:08:25">2021-11-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
