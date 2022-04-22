@@ -164,42 +164,42 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Linux下启动该工具</span><br><span class="line">./start.sh</span><br><span class="line">sh文件里面的命令为</span><br><span class="line">java -XX:ParallelGCThreads=4 -XX:+AggressiveHeap -XX:+UseParallelGC -jar cobaltstrike.jar $*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Windows下启动该工具</span><br><span class="line">直接点击 可执行文件exe即可。</span><br></pre></td></tr></table></figure>
 
 <h3 id="配置安装"><a href="#配置安装" class="headerlink" title="配置安装"></a>配置安装</h3><p>在自己服务器配置服务端，CS的整体架构应该像下面这样吧？</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603131230506.png" alt="image-20210603131230506"></p>
+<p><img src="/.com//image-20210603131230506.png" alt="image-20210603131230506"></p>
 <p>英格力士高级不高级，嘿嘿。</p>
 <h4 id="安装JDK1-8-0"><a href="#安装JDK1-8-0" class="headerlink" title="安装JDK1.8.0"></a>安装JDK1.8.0</h4><p>先配置部署在云服务器的总服务端吧，首先安装JDK1.8，这里只展示centos安装的jdk1.8，其他的也都挺类似的。网上教程很详细。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">用yum安装JDK</span><br><span class="line"></span><br><span class="line">1.查看yum库中都有哪些jdk版本(暂时只发现了openjdk)</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# yum search java|grep jdk</span><br><span class="line">ldapjdk-javadoc.x86_64 : Javadoc for ldapjdk</span><br><span class="line">java-1.6.0-openjdk.x86_64 : OpenJDK Runtime Environment</span><br><span class="line">java-1.6.0-openjdk-demo.x86_64 : OpenJDK Demos</span><br><span class="line">java-1.6.0-openjdk-devel.x86_64 : OpenJDK Development Environment</span><br><span class="line">java-1.6.0-openjdk-javadoc.x86_64 : OpenJDK API Documentation</span><br><span class="line">java-1.6.0-openjdk-src.x86_64 : OpenJDK Source Bundle</span><br><span class="line">java-1.7.0-openjdk.x86_64 : OpenJDK Runtime Environment</span><br><span class="line">java-1.7.0-openjdk-demo.x86_64 : OpenJDK Demos</span><br><span class="line">java-1.7.0-openjdk-devel.x86_64 : OpenJDK Development Environment</span><br><span class="line">java-1.7.0-openjdk-javadoc.noarch : OpenJDK API Documentation</span><br><span class="line">java-1.7.0-openjdk-src.x86_64 : OpenJDK Source Bundle</span><br><span class="line">java-1.8.0-openjdk.x86_64 : OpenJDK Runtime Environment</span><br><span class="line">java-1.8.0-openjdk-demo.x86_64 : OpenJDK Demos</span><br><span class="line">java-1.8.0-openjdk-devel.x86_64 : OpenJDK Development Environment</span><br><span class="line">java-1.8.0-openjdk-headless.x86_64 : OpenJDK Runtime Environment</span><br><span class="line">java-1.8.0-openjdk-javadoc.noarch : OpenJDK API Documentation</span><br><span class="line">java-1.8.0-openjdk-src.x86_64 : OpenJDK Source Bundle</span><br><span class="line">ldapjdk.x86_64 : The Mozilla LDAP Java SDK</span><br><span class="line"></span><br><span class="line">2.选择版本,进行安装</span><br><span class="line"></span><br><span class="line">//选择1.7版本进行安装</span><br><span class="line">[root@localhost ~]# yum install java-1.8.0-openjdk</span><br><span class="line">//安装完之后，默认的安装目录是在: /usr/lib/jvm/</span><br><span class="line"></span><br><span class="line">3.查看java版本</span><br><span class="line">[root@VM-12-8-centos ~]# java -version</span><br><span class="line">openjdk version &quot;1.8.0_292&quot;</span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_292-b10)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)</span><br></pre></td></tr></table></figure>
 
 <h4 id="运行teamserver总服务端"><a href="#运行teamserver总服务端" class="headerlink" title="运行teamserver总服务端"></a>运行teamserver总服务端</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行的方式如下</span><br><span class="line">chmod +x teamserver</span><br><span class="line">./teamserver vps的ip地址 连接口令</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603135728701.png" alt="image-20210603135728701"></p>
+<p><img src="/.com//image-20210603135728701.png" alt="image-20210603135728701"></p>
 <p>记得一定要把所有文件都传到linux里面，我开始没传完，一直报错，md忙了半小时，最后在徐神的帮助下才解决，日了。</p>
 <h4 id="客户端连接服务端"><a href="#客户端连接服务端" class="headerlink" title="客户端连接服务端"></a>客户端连接服务端</h4><p>直接运行那个exe文件即可，里面的内容按刚才你填的内容写，然后IP地址、端口和密码必须跟刚才服务端那里保持一致，而用户名是可以随意设置的，这就是让团队使用的，就像一堆人连一个WiFi一样。</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603141524952.png" alt="image-20210603141524952"></p>
+<p><img src="/.com//image-20210603141524952.png" alt="image-20210603141524952"></p>
 <p>配置好的界面就像上面的这样，但是全是英语单词沃日，能看懂，但是只能看懂一点点。</p>
 <h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44677409/article/details/102725129">这里是详细的教程总结处</a></p>
 <p>我这里只写我用到的各种东西(或者说是比较常用的东西)。</p>
 <p><strong>工具栏</strong></p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603143946539.png" alt="image-20210603143946539"></p>
+<p><img src="/.com//image-20210603143946539.png" alt="image-20210603143946539"></p>
 <p>再就是要总结一下使用的流程吧</p>
 <h4 id="生成木马后门"><a href="#生成木马后门" class="headerlink" title="生成木马后门"></a>生成木马后门</h4><p>首先就是创建后门木马程序啦，这一步也是整体的流程的关键一环，称之为最关键的一步也不为过，这一步直接关系到我们的木马能不能上线。这一步中最关键又是其中的免杀，但是免杀还不是我现在能研究的了的。</p>
 <p><strong>如何生成后门木马程序</strong></p>
 <p>点击Cobalt Strike -&gt; Listeners-&gt;Add，其中内置了下面的几个Listener</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603144418716.png" alt="image-20210603144418716"></p>
+<p><img src="/.com//image-20210603144418716.png" alt="image-20210603144418716"></p>
 <p>其中一般化使用的是上面的5个Beacon的payload</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603144755208.png" alt="image-20210603144755208"></p>
+<p><img src="/.com//image-20210603144755208.png" alt="image-20210603144755208"></p>
 <p>使用TCP连接生成的payload更为简单，直接点击下面的save</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/QQ%E5%BD%95%E5%B1%8F20210603145725.gif" alt="QQ录屏20210603145725"></p>
+<p><img src="/.com//QQ%E5%BD%95%E5%B1%8F20210603145725.gif" alt="QQ录屏20210603145725"></p>
 <p>保存后门木马文件到桌面上后，可以到虚拟机里面测试木马的性能。这里开始我用的tcp(但是一开始忘开4444端口了，后来就换成http了，注意<strong>这里的4444端口是你的vps上需要开的端口，用来接收反弹shell的</strong>)，后来发现还是http好用似乎。就直接换成http了，也懒得开虚拟机了，直接在我的物理机上测试算了。</p>
 <p>简单地测试了一下，还是可以用的</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603160232678.png" alt="dump了一下用户密码的hash值"></p>
+<p><img src="/.com//image-20210603160232678.png" alt="dump了一下用户密码的hash值"></p>
 <p>hash值都dump下来了，就能在本地直接使用hashcat碰撞用户的密码啦。</p>
 <h4 id="上线后的命令"><a href="#上线后的命令" class="headerlink" title="上线后的命令"></a>上线后的命令</h4><p>下面只记录不会太多，估计只会记录<strong>常见的、炫酷的和有用的</strong>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hashdump   # 把受害者主机的用户名和密码的hash值脏下来</span><br><span class="line">screenshot  # 获得受害者PC的正在显示的情况的截图，估计只是模拟按键PrntScr而已</span><br></pre></td></tr></table></figure>
 
 <h5 id="桌面截图"><a href="#桌面截图" class="headerlink" title="桌面截图"></a>桌面截图</h5><p><code>screenshot</code></p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603161052384.png" alt="生成截图的功能"></p>
+<p><img src="/.com//image-20210603161052384.png" alt="生成截图的功能"></p>
 <h4 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h4><p>可以直接获得受害者主机的目录并且可以上传文件，这就方便了我们后续上传更强力的马、更针对受害者环境的马。</p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210603222144746.png" alt="可以看到这个jar文件就是我后来通过CS上传到我的虚拟机上的"></p>
+<p><img src="/.com//image-20210603222144746.png" alt="可以看到这个jar文件就是我后来通过CS上传到我的虚拟机上的"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>CS后门使我们可以后续持续对受害者网络进行攻击，具体再说怎么使用就要到实战中去了，毕竟实战才是提升自己实力的最快的途径。</p>
 <h2 id="Shiro-反序列化综合利用工具"><a href="#Shiro-反序列化综合利用工具" class="headerlink" title="Shiro 反序列化综合利用工具"></a>Shiro 反序列化综合利用工具</h2><p><a target="_blank" rel="noopener" href="https://github.com/j1anFen/shiro_attack">工具的下载地址</a>，该工具应该是基于Java的，所以可以跨平台使用。</p>
 <h2 id="sqlmap的简单使用"><a href="#sqlmap的简单使用" class="headerlink" title="sqlmap的简单使用"></a>sqlmap的简单使用</h2><h3 id="POST类型的sql注入"><a href="#POST类型的sql注入" class="headerlink" title="POST类型的sql注入"></a>POST类型的sql注入</h3><p>利用SQLmap进行简单的post类型的注入，因为现在很多的网站都是采用post的方式进行数据传输的，所以这里尝试一下post类型的注入。</p>
@@ -208,7 +208,7 @@
 
 
 <h2 id="Java反序列化终极测试工具"><a href="#Java反序列化终极测试工具" class="headerlink" title="Java反序列化终极测试工具"></a>Java反序列化终极测试工具</h2><p>这个主要是java的环境不好搞，因为使用到了某些包只有特定的几个jdk版本中在使用，所以这里使用的jdk版本为<code>jdk-8u151-windows-x64.exe</code>，在国内的<a target="_blank" rel="noopener" href="https://repo.huaweicloud.com/java/jdk/8u151-b12/">华为镜像站下载</a></p>
-<p><img src="/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/image-20210719120737197.png"></p>
+<p><img src="/.com//image-20210719120737197.png"></p>
 <h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h1><h2 id="在线信息收集"><a href="#在线信息收集" class="headerlink" title="在线信息收集"></a>在线信息收集</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bring_coco/article/details/114485091?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-1-114485091.pc_agg_rank_aggregation&utm_term=fofa%E7%9A%84%E8%AF%AD%E6%B3%95&spm=1000.2123.3001.4430">fofa语法</a></p>
 <h2 id="使用工具信息收集"><a href="#使用工具信息收集" class="headerlink" title="使用工具信息收集"></a>使用工具信息收集</h2><h3 id="1-one-for-all"><a href="#1-one-for-all" class="headerlink" title="1. one for all"></a>1. one for all</h3><p>强大的开源子域名收集工具</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">github工具地址</a></p>

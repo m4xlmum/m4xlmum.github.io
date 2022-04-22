@@ -148,7 +148,7 @@
 <p>参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1PW41197Su">bilibili</a>，这篇文章里面的讲解很详细，到时候有需要的话，或者哪里忘记了可以再回来重温一下。</p>
 <p>下面是资料与素材的<a target="_blank" rel="noopener" href="http://www.sikiedu.com/my/course/90/material">链接</a></p>
 </blockquote>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211005224459006.png"></p>
+<p><img src="/.com//image-20211005224459006.png"></p>
 <h2 id="资源导入"><a href="#资源导入" class="headerlink" title="资源导入"></a>资源导入</h2><p>先将unitypackage文件导入进asset文件夹里面，直接import选择就行。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">图片切割</span><br><span class="line">动画制作</span><br><span class="line"></span><br><span class="line">player脚本制作</span><br></pre></td></tr></table></figure>
 
@@ -158,10 +158,10 @@
 
 <h2 id="碰撞检测"><a href="#碰撞检测" class="headerlink" title="碰撞检测"></a>碰撞检测</h2><p>2D的碰撞器为，创建脚本的那里选择Box collider 2D。</p>
 <p>对预制体(prefabs)进行操作的时候，老师讲的是有个apply的一个操作的，<del>但是注意到unity 2020中并没有这个apply的操作</del>(我后来找到了，在这里，如下图)，似乎是直接改变预制体的属性，Hierarchy中的属性就会也跟着更改。</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006123654506.png"></p>
+<p><img src="/.com//image-20211006123654506.png"></p>
 <p>令，对移动的物体创建刚体(Rigidbody 2D)的属性，这里我们只对坦克创建刚体的属性，其他map相关的地方，除了草丛不用创建碰撞器，其他的都需要创建碰撞器。</p>
 <h2 id="遇到的问题及其解决方案"><a href="#遇到的问题及其解决方案" class="headerlink" title="遇到的问题及其解决方案"></a>遇到的问题及其解决方案</h2><h3 id="坦克旋转问题解决"><a href="#坦克旋转问题解决" class="headerlink" title="坦克旋转问题解决"></a>坦克旋转问题解决</h3><p>把z轴锁上</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211005235455220.png"></p>
+<p><img src="/.com//image-20211005235455220.png"></p>
 <h3 id="解决抖动的问题"><a href="#解决抖动的问题" class="headerlink" title="解决抖动的问题"></a>解决抖动的问题</h3><p>这个问题是刚体与障碍物碰撞产生的，这里使用固定物理帧的方法，就是把update方法换为FixedUpdate方法，为private函数。</p>
 <p>并且把<code>Time.deltaTime</code>改为<code>Time.fixedDeltaTime</code></p>
 <h3 id="解决移动优先级的问题"><a href="#解决移动优先级的问题" class="headerlink" title="解决移动优先级的问题"></a>解决移动优先级的问题</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**解决移动优先级问题*/</span></span><br><span class="line"><span class="keyword">if</span> (x != <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -170,7 +170,7 @@
 
 
 
-<h3 id="渲染优先级的问题"><a href="#渲染优先级的问题" class="headerlink" title="渲染优先级的问题"></a>渲染优先级的问题</h3><p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006002155224.png"></p>
+<h3 id="渲染优先级的问题"><a href="#渲染优先级的问题" class="headerlink" title="渲染优先级的问题"></a>渲染优先级的问题</h3><p><img src="/.com//image-20211006002155224.png"></p>
 <p>数值越大，等级越高，在最上层。</p>
 <h2 id="坦克的攻击方法"><a href="#坦克的攻击方法" class="headerlink" title="坦克的攻击方法"></a>坦克的攻击方法</h2><p>需要编辑Player的脚本，先打开脚本</p>
 <blockquote>
@@ -182,7 +182,7 @@
 
 
 <p>这之后再将Attack函数添加到update函数里面（这里如果将该函数放在fixedupdate里面会产生按空格发不出来子弹的Bug），再将BulletPrefab的预制体赋一下值。</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006120315415.png"></p>
+<p><img src="/.com//image-20211006120315415.png"></p>
 <h3 id="子弹方向的问题解决"><a href="#子弹方向的问题解决" class="headerlink" title="子弹方向的问题解决"></a>子弹方向的问题解决</h3><p>因为Unity2D是左手坐标系，也就是说Z轴是从前到后的，所以说向左旋转是Vector3(0, 0, -90)。向右则相反。</p>
 <p>上下则很简明，向下就是(±180°)都可以。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Vector3 BulletEulerAngles;  <span class="comment">//定义子弹的欧拉角</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 子弹的角度应为：当前坦克的角度 + 子弹应该旋转的角度</span></span><br><span class="line">Instantiate(BulletPrefab, transform.position, Quaternion.Euler(transform.eulerAngles + BulletEulerAngles));</span><br></pre></td></tr></table></figure>
@@ -192,12 +192,12 @@
 
 <p>这里的正负90度也是涉及到了左手坐标系的问题，这里就不再写了。</p>
 <h3 id="左手坐标系问题再解决"><a href="#左手坐标系问题再解决" class="headerlink" title="左手坐标系问题再解决"></a>左手坐标系问题再解决</h3><p>老师的那里的问题，我这还是标准的右手坐标系啊，所以我这里的旋转的角度还是顺时针旋转的，所以这里我的向右的方向的v3的坐标应该是(0,0,90)</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006123946482.png"></p>
+<p><img src="/.com//image-20211006123946482.png"></p>
 <h2 id="让子弹动起来"><a href="#让子弹动起来" class="headerlink" title="让子弹动起来"></a>让子弹动起来</h2><blockquote>
 <p>目标：就是给子弹添加脚本，让子弹可以动起来。</p>
 </blockquote>
 <p>先给子弹添加脚本。</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006125634280.png"></p>
+<p><img src="/.com//image-20211006125634280.png"></p>
 <h2 id="给子弹添加时间间隔"><a href="#给子弹添加时间间隔" class="headerlink" title="给子弹添加时间间隔"></a>给子弹添加时间间隔</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">float</span> timeVal;  <span class="comment">//创建计时器，控制子弹的发射速度</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (timeVal &gt;= <span class="number">0.4f</span>)  <span class="comment">//设置子弹的CD为0.4</span></span><br><span class="line">    &#123;</span><br><span class="line">        Attack();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        timeVal += Time.deltaTime;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.....</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     坦克的攻击方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Attack</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 子弹的角度应为：当前坦克的角度 + 子弹应该旋转的角度</span></span><br><span class="line">        Instantiate(BulletPrefab, transform.position, Quaternion.Euler(transform.eulerAngles + BulletEulerAngles));</span><br><span class="line"></span><br><span class="line">        timeVal = <span class="number">0</span>; <span class="comment">//攻击后计时器清零</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -206,10 +206,10 @@
 <p>触发器生效的前提条件是他们的渲染层级相同，渲染层级就是我们前面改过的layer的属性。</p>
 </blockquote>
 <p>先创建碰撞器，碰撞器里面有一个触发器的属性，给他勾上就ok了。言如下图</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006131028155.png"></p>
-<h3 id="运动的一方-子弹-添加刚体属性"><a href="#运动的一方-子弹-添加刚体属性" class="headerlink" title="运动的一方(子弹)添加刚体属性"></a>运动的一方(子弹)添加刚体属性</h3><p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006131155243.png"></p>
+<p><img src="/.com//image-20211006131028155.png"></p>
+<h3 id="运动的一方-子弹-添加刚体属性"><a href="#运动的一方-子弹-添加刚体属性" class="headerlink" title="运动的一方(子弹)添加刚体属性"></a>运动的一方(子弹)添加刚体属性</h3><p><img src="/.com//image-20211006131155243.png"></p>
 <h3 id="标签的添加"><a href="#标签的添加" class="headerlink" title="标签的添加"></a>标签的添加</h3><p>如下图，添加标签</p>
-<p><img src="/Unity%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/image-20211006132752386.png"></p>
+<p><img src="/.com//image-20211006132752386.png"></p>
 <h3 id="制作空气墙"><a href="#制作空气墙" class="headerlink" title="制作空气墙"></a>制作空气墙</h3><p>就是边界问题，当子弹到达边界时自动销毁子弹</p>
 <p>空气墙就是把那个障碍物复制一份(Ctrl + D)，然后移除他的精灵渲染器即可(sprite renderer).</p>
 <h2 id="坦克的死亡问题"><a href="#坦克的死亡问题" class="headerlink" title="坦克的死亡问题"></a>坦克的死亡问题</h2><p>坦克如何死亡呢？在player.cs里面添加Die()方法，先整爆炸特效，死亡就是销毁当前的gameobject就行了</p>
