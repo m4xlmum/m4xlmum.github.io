@@ -150,7 +150,7 @@
 </ol>
 </blockquote>
 <h2 id="一、前端布局"><a href="#一、前端布局" class="headerlink" title="一、前端布局"></a>一、前端布局</h2><p>这里我主要想参考的是下面这个hexo的博客的布局来搞，就是一个初级的练手的项目，不想搞得太深，没什么必要也。</p>
-<p><img src="/.io//image-20211004210733904.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211004210733904.png"></p>
 <p>就是最上面是一个导航栏，再往下一点有个轮播图，再向下是个三栏式的博客，左边和右边是小工具的地方，中间放文章的标题与摘要，可以设置封面，不设置封面的话自动加载默认的图片。</p>
 <h2 id="二、数据库设置"><a href="#二、数据库设置" class="headerlink" title="二、数据库设置"></a>二、数据库设置</h2><p>两个表，一个表中存放用户的相关信息，另一个表中存放发表的博客文章的相关信息。</p>
 <h3 id="1-用户信息表"><a href="#1-用户信息表" class="headerlink" title="1. 用户信息表"></a>1. 用户信息表</h3><p>用户名、密码、邮箱</p>
@@ -218,17 +218,17 @@
 <p>将想设置单独滚动的div盒子的样式表添加下面的两个attr，<strong>注意必须要设置高度固定</strong>，亲测有效</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow-y</span>:scroll;</span><br><span class="line"><span class="attribute">overflow-x</span>: hidden;</span><br><span class="line"><span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line"><span class="attribute">scrollbar-width</span>: none; <span class="comment">/*隐藏滚动条，兼容火狐浏览器*/</span></span><br><span class="line"></span><br><span class="line">&#123;css选择器&#125;::-webkit-scrollbar &#123;</span><br><span class="line">	<span class="attribute">display</span>: none;<span class="comment">/*隐藏滚动条*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.io//image-20211201001531238.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211201001531238.png"></p>
 <h3 id="2-双栏内容设置左侧固定的解决方案"><a href="#2-双栏内容设置左侧固定的解决方案" class="headerlink" title="2. 双栏内容设置左侧固定的解决方案"></a>2. 双栏内容设置左侧固定的解决方案</h3><p>​	这个因为设置了<code>position:fixed;</code>之后，这个元素会自动定位到这个html的左上角似乎是，然后就需要重新考虑一下解决方案了，对于一般的双栏内容而言，只需要加一个相同宽高度的div填充他本来应该在的位置即可，就能把这个fixed的元素给顶出来了。</p>
-<p><img src="/.io//image-20211208153631633.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211208153631633.png"></p>
 <h4 id="找到了个更方便的"><a href="#找到了个更方便的" class="headerlink" title="找到了个更方便的"></a>找到了个更方便的</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43288153/article/details/107247272">参考文章链接</a></p>
 <p>绝对定位之后可以使用<code>left top right bottom</code>几个属性进行定位，但这里一定要使用百分比定位，否则就会非常尴尬。</p>
 <h3 id="3-简单方法添加live2d插件"><a href="#3-简单方法添加live2d插件" class="headerlink" title="3. 简单方法添加live2d插件"></a>3. 简单方法添加live2d插件</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40290074/article/details/104718917">参考文章链接</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">使用工具链接</a></p>
 <p>这里直接把他的源码下下来，放到你项目的static资源区：</p>
-<p><img src="/.io//image-20211209162426413.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209162426413.png"></p>
 <p>然后哪里使用直接用下面这种方法导入即可：</p>
-<p><img src="/.io//image-20211209162219281.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209162219281.png"></p>
 <p>但需要注意的是，在这句的上面还要加上个font-awesome的引用。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--加入live2d看板--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;~/static/live2d/autoload.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -244,7 +244,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">解析：server=&quot;netease&quot; type=&quot;playlist&quot; id=&quot;60198&quot;</span><br><span class="line"></span><br><span class="line">server指音乐平台，netease指网易云音乐， type类型，playlist列表，id指歌曲的i或者专辑或列表外链id</span><br><span class="line">因此重点在于指定平台，指定外链id</span><br></pre></td></tr></table></figure>
 
 <p>  使用的时候我发现，它的这个插件的宽度是自适应父元素的。但是列表的最大高度需要自己调整，这里调整为了父元素的高度，效果如下图所示：</p>
-<p><img src="/.io//image-20211213140854873.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211213140854873.png"></p>
 <p>  我的配置代码如下所示：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meting-js</span> <span class="attr">server</span>=<span class="string">&quot;netease&quot;</span> <span class="attr">type</span>=<span class="string">&quot;playlist&quot;</span> <span class="attr">id</span>=<span class="string">&quot;60198&quot;</span> <span class="attr">list-max-height</span>=<span class="string">&quot;300px&quot;</span> <span class="attr">list-folded</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -255,15 +255,15 @@
 </blockquote>
 <p>  这个我准备在留言板模块来使用，但是似乎也是可以在普通的博客界面来使用，现在来写一下使用的方法，主要就是上面的这个引用的链接的使用方式。</p>
 <h4 id="lt-1-gt-获取APP-ID-和-APP-Key"><a href="#lt-1-gt-获取APP-ID-和-APP-Key" class="headerlink" title="&lt;1&gt;获取APP ID 和 APP Key"></a>&lt;1&gt;获取APP ID 和 APP Key</h4><p><a target="_blank" rel="noopener" href="https://console.leancloud.cn/">LeanCloud</a>注册登录。</p>
-<p><img src="/.io//image-20211215154302058.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211215154302058.png"></p>
 <p>创建应用(此版块非常容易找到，不再截图)</p>
-<p><img src="/.io//image-20211215154517469.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211215154517469.png"></p>
 <p>找到APPID和APPKEY</p>
-<p><img src="/.io//image-20211215154614968.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211215154614968.png"></p>
 <h4 id="lt-2-gt-直接就可以使用了"><a href="#lt-2-gt-直接就可以使用了" class="headerlink" title="&lt;2&gt;.直接就可以使用了"></a>&lt;2&gt;.直接就可以使用了</h4><p>​	使用的是引入外部cdn资源的方式引入的这个Valine的模块，所以说非常方便，省得自己再配置了，下面是直接使用的代码:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    ..</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;vcomments&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">new</span> <span class="title class_">Valine</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">el</span>: <span class="string">&#x27;#vcomments&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">appId</span>: <span class="string">&#x27;Your appId&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">appKey</span>: <span class="string">&#x27;Your appKey&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/.io//image-20211215155341562.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211215155341562.png"></p>
 <p>​	我使用起来的效果就是上面的这样，我的代码如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;vcomments&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Valine</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>: <span class="string">&#x27;#vcomments&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">appId</span>: <span class="string">&#x27;你的id&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">appKey</span>: <span class="string">&#x27;你的key&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -276,7 +276,7 @@
 <p><a target="_blank" rel="noopener" href="https://widget.qweather.com/create-standard/#name-box">和风天气插件</a></p>
 </blockquote>
 <p>​	这个使用相对简单，可以直接免登录生成代码，直接使用</p>
-<p><img src="/.io//image-20211215214548829.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211215214548829.png"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;he-plugin-standard&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="variable constant_">WIDGET</span> = &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="string">&quot;CONFIG&quot;</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;layout&quot;</span>: <span class="string">&quot;1&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;300&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;120&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;background&quot;</span>: <span class="string">&quot;1&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;dataColor&quot;</span>: <span class="string">&quot;FFFFFF&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;borderRadius&quot;</span>: <span class="string">&quot;20&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;modules&quot;</span>: <span class="string">&quot;10&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&quot;key&quot;</span>: <span class="string">&quot;d20a76ef84c646acae0b93c6350c6c82&quot;</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">@*天气插件的js的引入*@</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
@@ -285,7 +285,7 @@
 <p><a target="_blank" rel="noopener" href="https://www.tianqi.com/dingzhi/">插件参考网址</a></p>
 </blockquote>
 <p>​	效果如下：</p>
-<p><img src="/.io//image-20211215224238467.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211215224238467.png"></p>
 <p>综上所述，我决定采用下面的iframe的那个插件。</p>
 <h3 id="8-添加爆炸特效"><a href="#8-添加爆炸特效" class="headerlink" title="8. 添加爆炸特效"></a>8. 添加爆炸特效</h3><blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/MathGod/js_dianji_baozha">js_dianji_baozha</a></p>
@@ -314,14 +314,14 @@
 <p>​	为了简化代码，可以在class里面声明一个全局变量——用来在只有一处调用时使用，如果有第二处需要连接数据库的地方，则使用上面的这种方式来使用。</p>
 <h3 id="4-在本地重新设置post接收数据的限制"><a href="#4-在本地重新设置post接收数据的限制" class="headerlink" title="4. 在本地重新设置post接收数据的限制"></a>4. 在本地重新设置post接收数据的限制</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Zongsoft/p/IIS-Express.html">- 参考文章链接 -</a></p>
 <p>​    这个限制是我在测试上传长度时发现的，ajax上传的post数据一旦超过某个阈值就会post不上去，这里采用网上的解决方案试了一试。</p>
-<p><img src="/.io//image-20211209142230048.png"></p>
-<p><img src="/.io//image-20211209142253305.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209142230048.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209142253305.png"></p>
 <p>​    然而修改之后无果，我感觉可能会使ajax的错误？错了，都错了，原来是防xss攻击的策略，可以取消这个数据验证</p>
-<p><img src="/.io//image-20211209143944306.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209143944306.png"></p>
 <p>取消验证的方法如下，直接修改<code>web.config</code>文件的内容即可。</p>
-<p><img src="/.io//image-20211209144153591.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209144153591.png"></p>
 <p>其实都不用，看了官方文档就清楚了，直接改下面这里，加上个<code>[ValidateInput(false)]</code>就ok了。</p>
-<p><img src="/.io//image-20211209145037420.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211209145037420.png"></p>
 <h3 id="5-取消code-first产生的错误"><a href="#5-取消code-first产生的错误" class="headerlink" title="5. 取消code first产生的错误"></a>5. 取消code first产生的错误</h3><p>使用code first的时候，取消使用这个策略的时候会报错，这个时候只需要删除主目录上面的migration目录即可。</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31135027/article/details/79756647">支持“OdeToFoodDb”上下文的模型已在数据库创建后发生更改</a></p>
@@ -337,7 +337,7 @@
 
 
 <h3 id="7-SqlServer设置id自增"><a href="#7-SqlServer设置id自增" class="headerlink" title="7. SqlServer设置id自增"></a>7. SqlServer设置id自增</h3><p>只需要在需要自增的字段的后面加上下图中的属性就行了，<code>IDENTITY(0,1)</code>这个语句代表的是从0开始，每步自增数为1。</p>
-<p><img src="/.io//image-20211217145804744.png"></p>
+<p><img src="/2021/10/04/ASP-NET%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3//image-20211217145804744.png"></p>
 <p>但是这样对我的功能似乎并没有什么帮助。我想实现的功能时，当我删除中间部分的某一个行的数据时，后面的id会自动向上并且减一，比如说本来如果是<code>1 2 3 4 5...</code>，当我删除了<code>3</code>这条记录时，我所期望发生的变化是<code>1 2 3 4...</code>而不是<code>1 2 4 5...</code>，</p>
 <h1 id="网易云项目文档"><a href="#网易云项目文档" class="headerlink" title="网易云项目文档"></a>网易云项目文档</h1><h2 id="一、使用的API"><a href="#一、使用的API" class="headerlink" title="一、使用的API"></a>一、使用的API</h2><p>使用的是一个开源的API项目，项目地址为</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Binaryify/NeteaseCloudMusicApi">https://github.com/Binaryify/NeteaseCloudMusicApi</a></p>
